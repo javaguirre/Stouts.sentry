@@ -51,6 +51,10 @@
   pip: name={{item}} executable={{sentry_home}}/env/bin/pip
   with_items: sentry_extensions
 
+- name: Install json package for postgres jsonb bug
+  pip: name={{item}} executable={{sentry_home}}/env/bin/pip
+  with_items: django-jsonfield==0.9.13
+
 - name: Prepare Sentry
   template: src=sentry.j2 dest={{sentry_home}}/sentry owner={{sentry_user}} mode=0755
 
